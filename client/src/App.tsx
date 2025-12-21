@@ -4,13 +4,17 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { AppProvider } from "./lib/store";
+import LoginPage from "./pages/login";
+import KidsDashboard from "./pages/kids-dashboard";
+import ParentSettings from "./pages/parent-settings";
 
 function Router() {
   return (
     <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
+      <Route path="/" component={LoginPage} />
+      <Route path="/kids" component={KidsDashboard} />
+      <Route path="/parent" component={ParentSettings} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -20,8 +24,10 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <AppProvider>
+          <Toaster />
+          <Router />
+        </AppProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
