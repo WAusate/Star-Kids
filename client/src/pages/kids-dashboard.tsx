@@ -88,28 +88,27 @@ export default function KidsDashboard() {
         </button>
       </header>
 
-      <main className="relative p-4 md:p-8 max-w-7xl mx-auto z-10">
+      <main className="relative p-4 md:p-8 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-4">
+          <div className="grid grid-cols-2 gap-6 pt-4 max-w-2xl mx-auto">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as Category)}
                 className={`
-                  relative group h-64 md:h-80 rounded-[4rem] bg-gradient-to-br ${cat.color}
-                  border-[12px] border-white shadow-2xl transition-all duration-300
+                  relative group h-48 md:h-64 rounded-[3rem] bg-gradient-to-br ${cat.color}
+                  border-[8px] border-white shadow-2xl transition-all duration-300
                   hover:scale-[1.05] active:scale-95 hover:-rotate-2
                   flex flex-col items-center justify-center overflow-hidden
                 `}
               >
-                <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-xl group-hover:scale-150 transition-transform" />
-                <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-black/10 rounded-full blur-2xl" />
-
-                <div className="bg-white/95 p-8 rounded-full shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                  <cat.icon className="w-20 h-20 md:w-28 md:h-28 text-primary" strokeWidth={2.5} />
+                <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-lg group-hover:scale-150 transition-transform" />
+                
+                <div className="bg-white/95 p-5 md:p-7 rounded-full shadow-xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                  <cat.icon className="w-12 h-12 md:w-20 md:h-20 text-primary" strokeWidth={3} />
                 </div>
                 
-                <h2 className="mt-6 text-white font-heading text-4xl md:text-5xl tracking-wide drop-shadow-2xl">
+                <h2 className="mt-4 text-white font-heading text-2xl md:text-3xl tracking-wide drop-shadow-lg">
                   {cat.label}
                 </h2>
 
