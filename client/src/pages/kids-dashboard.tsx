@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { useApp } from "../lib/store";
 import { useLocation } from "wouter";
-import { Settings, Play, Lock, X, Tv, Gamepad2, Music, BookOpen, Star, Cloud, Sun, ArrowLeft } from "lucide-react";
+import { Settings, Play, Lock, X, ArrowLeft } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
+
+// Import images
 import bgImage from "@assets/generated_images/magical_floating_island_background.png";
+import sunImg from "@assets/generated_images/happy_cartoon_sun_waving.png";
+import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png";
+import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
+import musicasImg from "@assets/generated_images/cartoon_guitar_and_drum.png";
+import historiasImg from "@assets/generated_images/open_magical_storybook_with_dragons.png";
 
 type Category = "desenhos" | "jogos" | "musicas" | "historias";
 
@@ -44,101 +51,112 @@ export default function KidsDashboard() {
   }
 
   const categories = [
-    { id: "desenhos", label: "DESENHOS", icon: Tv, color: "from-blue-400 to-blue-500", shadow: "shadow-blue-200" },
-    { id: "jogos", label: "JOGOS", icon: Gamepad2, color: "from-green-400 to-green-500", shadow: "shadow-green-200" },
-    { id: "musicas", label: "MÚSICAS", icon: Music, color: "from-yellow-400 to-yellow-500", shadow: "shadow-yellow-200" },
-    { id: "historias", label: "HISTÓRIAS", icon: BookOpen, color: "from-purple-400 to-purple-500", shadow: "shadow-purple-200" },
+    { id: "desenhos", label: "DESENHOS", img: desenhosImg, color: "bg-blue-500" },
+    { id: "jogos", label: "JOGOS", img: jogosImg, color: "bg-green-500" },
+    { id: "musicas", label: "MÚSICAS", img: musicasImg, color: "bg-orange-500" },
+    { id: "historias", label: "HISTÓRIAS", img: historiasImg, color: "bg-pink-500" },
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[#E0F2FE]">
-      {/* Whimsical Background */}
+    <div className="min-h-screen relative overflow-hidden bg-[#87CEEB]">
+      {/* Background elements */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
+        className="absolute inset-0 bg-cover bg-center opacity-60"
         style={{ backgroundImage: `url(${bgImage})` }}
       />
       
-      {/* Animated Floating Elements */}
-      <div className="absolute top-10 left-10 animate-bounce duration-[3000ms] opacity-60"><Cloud className="w-16 h-16 text-white" /></div>
-      <div className="absolute top-40 right-20 animate-pulse opacity-40"><Star className="w-8 h-8 text-yellow-400" /></div>
-      <div className="absolute bottom-20 left-1/4 animate-bounce duration-[4000ms] opacity-50"><Cloud className="w-20 h-20 text-white" /></div>
+      {/* Decorative Suns */}
+      <img src={sunImg} className="absolute top-4 left-4 w-24 h-24 animate-bounce-sm" alt="Sun" />
+      <img src={sunImg} className="absolute top-10 right-24 w-32 h-32 animate-pulse" alt="Sun" />
+      <img src={sunImg} className="absolute top-48 right-4 w-20 h-20 animate-bounce-sm" alt="Sun" />
 
-      <header className="relative p-6 flex justify-between items-center z-20">
-        <div className="flex items-center gap-4">
-          {selectedCategory && (
-            <button 
-              onClick={() => setSelectedCategory(null)}
-              className="bg-white/90 p-3 rounded-full shadow-lg hover:scale-110 active:scale-90 transition-all border-4 border-primary/20"
-            >
-              <ArrowLeft className="w-8 h-8 text-primary" strokeWidth={4} />
-            </button>
-          )}
-          <div className="bg-white/80 backdrop-blur-md px-6 py-2 rounded-full border-4 border-white shadow-xl">
-            <h1 className="text-3xl md:text-5xl font-heading text-primary flex items-center gap-3">
-              <Sun className="w-8 h-8 text-yellow-500 animate-spin-slow" />
-              {selectedCategory ? categories.find(c => c.id === selectedCategory)?.label : `OI, ${childName || "AMIGUINHO"}!`}
+      {/* Cloud Header */}
+      <header className="relative pt-12 flex flex-col items-center z-20">
+        <div className="relative">
+          {/* Cloud Shape Wrapper */}
+          <div className="bg-white rounded-[4rem] px-12 py-6 shadow-2xl border-b-8 border-blue-200/50">
+            <h1 className="text-4xl md:text-6xl font-heading text-center leading-tight">
+              <span className="text-pink-500 block">EI,</span>
+              <span className="text-blue-600 block">AMIGO!</span>
             </h1>
           </div>
+          
+          {/* Settings Button */}
+          <button
+            className="absolute -top-4 -right-12 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform"
+            onClick={() => setGateOpen(true)}
+          >
+            <Settings className="w-8 h-8" />
+          </button>
         </div>
-        <button
-          className="p-3 rounded-full bg-white/40 backdrop-blur-sm text-primary/40 hover:text-primary transition-colors"
-          onClick={() => setGateOpen(true)}
-        >
-          <Settings className="w-6 h-6" />
-        </button>
       </header>
 
-      <main className="relative p-4 md:p-8 max-w-4xl mx-auto z-10">
+      <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="grid grid-cols-2 gap-6 pt-4 max-w-2xl mx-auto">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-12">
             {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id as Category)}
-                className={`
-                  relative group h-48 md:h-64 rounded-[3rem] bg-gradient-to-br ${cat.color}
-                  border-[8px] border-white shadow-2xl transition-all duration-300
-                  hover:scale-[1.05] active:scale-95 hover:-rotate-2
-                  flex flex-col items-center justify-center overflow-hidden
-                `}
-              >
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/20 rounded-full blur-lg group-hover:scale-150 transition-transform" />
-                
-                <div className="bg-white/95 p-5 md:p-7 rounded-full shadow-xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
-                  <cat.icon className="w-12 h-12 md:w-20 md:h-20 text-primary" strokeWidth={3} />
-                </div>
-                
-                <h2 className="mt-4 text-white font-heading text-2xl md:text-3xl tracking-wide drop-shadow-lg">
-                  {cat.label}
-                </h2>
+              <div key={cat.id} className="flex flex-col items-center">
+                <button
+                  onClick={() => setSelectedCategory(cat.id as Category)}
+                  className="relative group transition-all duration-300 hover:scale-105 active:scale-95"
+                >
+                  {/* Character/Object Image */}
+                  <div className="relative z-10 w-full aspect-square flex items-center justify-center p-2">
+                    <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl" />
+                  </div>
+                  
+                  {/* Label Pill */}
+                  <div className={`
+                    absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap
+                    ${cat.color} px-8 py-2 rounded-full border-4 border-white shadow-xl
+                    text-white font-heading text-xl md:text-3xl tracking-wider
+                  `}>
+                    {cat.label}
+                  </div>
 
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              </button>
+                  {/* Cloud/Bubble Base */}
+                  <div className="absolute inset-x-0 bottom-4 h-1/2 bg-white/40 rounded-full blur-xl -z-10" />
+                </button>
+              </div>
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 animate-in zoom-in-95 duration-500">
-            {playlist.slice(0, 6).map((item) => (
-              <div
-                key={item.id}
-                onClick={() => handlePlay(item)}
-                className="group relative aspect-[4/3] rounded-[3rem] overflow-hidden cursor-pointer shadow-2xl bg-white border-[10px] border-white hover:border-primary/20 transition-all"
+          <div className="animate-in zoom-in-95 duration-500">
+            <div className="flex items-center gap-4 mb-8">
+              <button 
+                onClick={() => setSelectedCategory(null)}
+                className="bg-white p-4 rounded-full shadow-lg hover:scale-110 active:scale-90 transition-all border-4 border-primary/10"
               >
-                <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 flex items-center justify-center">
-                  <div className="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                    <Play className="w-12 h-12 text-primary ml-2 fill-primary" />
+                <ArrowLeft className="w-8 h-8 text-primary" strokeWidth={4} />
+              </button>
+              <div className="bg-white/90 px-8 py-3 rounded-full shadow-xl border-4 border-white">
+                <h2 className="text-3xl font-heading text-primary">
+                  {categories.find(c => c.id === selectedCategory)?.label}
+                </h2>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+              {playlist.slice(0, 6).map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => handlePlay(item)}
+                  className="group relative aspect-[4/3] rounded-[3rem] overflow-hidden cursor-pointer shadow-2xl bg-white border-[10px] border-white transition-all hover:scale-105"
+                >
+                  <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/10 flex items-center justify-center">
+                    <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                      <Play className="w-10 h-10 text-primary ml-1 fill-primary" />
+                    </div>
                   </div>
                 </div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <h3 className="text-white font-heading text-3xl drop-shadow-lg">{item.title}</h3>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
       </main>
 
+      {/* Modals remain the same but with larger fonts/buttons */}
       <Dialog open={gateOpen} onOpenChange={setGateOpen}>
         <DialogContent className="sm:max-w-md bg-white rounded-[3rem] border-0 shadow-2xl">
           <DialogHeader>
