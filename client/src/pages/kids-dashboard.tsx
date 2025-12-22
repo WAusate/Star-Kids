@@ -93,30 +93,26 @@ export default function KidsDashboard() {
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-12">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-16">
             {categories.map((cat) => (
-              <div key={cat.id} className="flex flex-col items-center">
+              <div key={cat.id} className="flex flex-col items-center pt-8">
                 <button
                   onClick={() => setSelectedCategory(cat.id as Category)}
-                  className="relative group transition-all duration-300 hover:scale-105 active:scale-95"
+                  className="relative group w-40 h-40 md:w-48 md:h-48 transition-all duration-300 hover:scale-110 active:scale-95 animate-float"
                 >
-                  {/* Character/Object Image */}
-                  <div className="relative z-10 w-full aspect-square flex items-center justify-center p-2">
-                    <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl" />
+                  {/* Character/Object Image - Floating */}
+                  <div className="relative w-full h-full flex items-center justify-center">
+                    <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
                   </div>
-                  
-                  {/* Label Pill */}
-                  <div className={`
-                    absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap
-                    ${cat.color} px-8 py-2 rounded-full border-4 border-white shadow-xl
-                    text-white font-heading text-xl md:text-3xl tracking-wider
-                  `}>
-                    {cat.label}
-                  </div>
-
-                  {/* Cloud/Bubble Base */}
-                  <div className="absolute inset-x-0 bottom-4 h-1/2 bg-white/40 rounded-full blur-xl -z-10" />
                 </button>
+                
+                {/* Label Pill */}
+                <div className={`
+                  mt-6 ${cat.color} px-8 py-3 rounded-full border-4 border-white shadow-xl
+                  text-white font-heading text-xl md:text-2xl tracking-wider text-center
+                `}>
+                  {cat.label}
+                </div>
               </div>
             ))}
           </div>
