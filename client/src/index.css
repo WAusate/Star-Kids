@@ -45,45 +45,29 @@
 
 :root {
   /* Colorful, Playful Theme "Soft Pop" */
-  /* Creamy Background */
   --background: 40 30% 97%;
   --foreground: 220 20% 20%;
-
-  /* White Cards with soft shadow */
   --card: 0 0% 100%;
   --card-foreground: 220 20% 20%;
-
   --popover: 0 0% 100%;
   --popover-foreground: 220 20% 20%;
-
-  /* Playful Blue Primary */
   --primary: 210 85% 60%;
   --primary-foreground: 0 0% 100%;
-
-  /* Sunny Yellow Secondary */
   --secondary: 45 90% 60%;
   --secondary-foreground: 30 40% 20%;
-
-  /* Soft Muted */
   --muted: 210 20% 94%;
   --muted-foreground: 220 10% 40%;
-
-  /* Fun Accent (Coral/Pink) */
   --accent: 6 80% 65%;
   --accent-foreground: 0 0% 100%;
-
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-
   --border: 220 13% 91%;
   --input: 220 13% 91%;
   --ring: 210 85% 60%;
-
   --radius: 1.5rem;
 }
 
 .dark {
-  /* Dark mode isn't a priority for kids apps usually, but keeping safe fallbacks */
   --background: 220 30% 10%;
   --foreground: 210 20% 98%;
   --card: 220 30% 12%;
@@ -119,7 +103,6 @@
   }
 }
 
-/* Custom bounce animation */
 @keyframes bounce-sm {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-5px); }
@@ -127,4 +110,13 @@
 
 .animate-bounce-sm {
   animation: bounce-sm 2s infinite ease-in-out;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
 }

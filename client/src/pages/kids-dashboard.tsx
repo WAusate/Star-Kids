@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useApp } from "../lib/store";
 import { useLocation } from "wouter";
-import { Settings, Play, Lock, X, Tv, Gamepad2, Music, BookOpen } from "lucide-react";
+import { Settings, Play, Lock, X, Tv, Gamepad2, Music, BookOpen, Star, Cloud, Sun, ArrowLeft } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
+import bgImage from "@assets/generated_images/magical_floating_island_background.png";
 
 type Category = "desenhos" | "jogos" | "musicas" | "historias";
 
@@ -18,7 +19,6 @@ export default function KidsDashboard() {
   const [currentVideo, setCurrentVideo] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
-  // Security gate for parents
   const mathProblem = "3 + 2";
   const correctAnswer = "5";
 
@@ -29,11 +29,7 @@ export default function KidsDashboard() {
       setGateAnswer("");
       setLocation("/parent");
     } else {
-      toast({
-        title: "Ops!",
-        description: "Tente novamente.",
-        variant: "destructive",
-      });
+      toast({ title: "Ops!", description: "Tente novamente.", variant: "destructive" });
     }
   };
 
@@ -48,95 +44,95 @@ export default function KidsDashboard() {
   }
 
   const categories = [
-    { id: "desenhos", label: "Desenhos Animados", icon: Tv, color: "bg-blue-400", hover: "hover:bg-blue-500", animation: "animate-bounce" },
-    { id: "jogos", label: "Jogos", icon: Gamepad2, color: "bg-green-400", hover: "hover:bg-green-500", animation: "animate-pulse" },
-    { id: "musicas", label: "Músicas", icon: Music, color: "bg-yellow-400", hover: "hover:bg-yellow-500", animation: "animate-bounce [animation-delay:200ms]" },
-    { id: "historias", label: "Histórias", icon: BookOpen, color: "bg-purple-400", hover: "hover:bg-purple-500", animation: "animate-pulse [animation-delay:400ms]" },
+    { id: "desenhos", label: "DESENHOS", icon: Tv, color: "from-blue-400 to-blue-500", shadow: "shadow-blue-200" },
+    { id: "jogos", label: "JOGOS", icon: Gamepad2, color: "from-green-400 to-green-500", shadow: "shadow-green-200" },
+    { id: "musicas", label: "MÚSICAS", icon: Music, color: "from-yellow-400 to-yellow-500", shadow: "shadow-yellow-200" },
+    { id: "historias", label: "HISTÓRIAS", icon: BookOpen, color: "from-purple-400 to-purple-500", shadow: "shadow-purple-200" },
   ];
 
-  const filteredPlaylist = selectedCategory 
-    ? playlist.slice(0, 6) 
-    : null;
-
   return (
-    <div className="min-h-screen bg-background pb-8 overflow-x-hidden">
-      {/* Header */}
-      <header className="p-4 flex justify-between items-center bg-transparent sticky top-0 z-10">
-        <div className="flex items-center gap-3">
+    <div className="min-h-screen relative overflow-hidden bg-[#E0F2FE]">
+      {/* Whimsical Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
+      
+      {/* Animated Floating Elements */}
+      <div className="absolute top-10 left-10 animate-bounce duration-[3000ms] opacity-60"><Cloud className="w-16 h-16 text-white" /></div>
+      <div className="absolute top-40 right-20 animate-pulse opacity-40"><Star className="w-8 h-8 text-yellow-400" /></div>
+      <div className="absolute bottom-20 left-1/4 animate-bounce duration-[4000ms] opacity-50"><Cloud className="w-20 h-20 text-white" /></div>
+
+      <header className="relative p-6 flex justify-between items-center z-20">
+        <div className="flex items-center gap-4">
           {selectedCategory && (
-            <Button 
-              variant="ghost" 
+            <button 
               onClick={() => setSelectedCategory(null)}
-              className="rounded-full h-14 w-14 bg-white shadow-lg hover:bg-white/90 active:scale-90 transition-transform flex items-center justify-center"
+              className="bg-white/90 p-3 rounded-full shadow-lg hover:scale-110 active:scale-90 transition-all border-4 border-primary/20"
             >
-              <ArrowLeft className="w-8 h-8 text-primary" strokeWidth={3} />
-            </Button>
+              <ArrowLeft className="w-8 h-8 text-primary" strokeWidth={4} />
+            </button>
           )}
-          <h1 className="text-3xl md:text-4xl font-heading text-primary drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">
-            {selectedCategory ? categories.find(c => c.id === selectedCategory)?.label : `Olá, ${childName || "Amiguinho"}!`}
-          </h1>
+          <div className="bg-white/80 backdrop-blur-md px-6 py-2 rounded-full border-4 border-white shadow-xl">
+            <h1 className="text-3xl md:text-5xl font-heading text-primary flex items-center gap-3">
+              <Sun className="w-8 h-8 text-yellow-500 animate-spin-slow" />
+              {selectedCategory ? categories.find(c => c.id === selectedCategory)?.label : `OI, ${childName || "AMIGUINHO"}!`}
+            </h1>
+          </div>
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          className="rounded-full hover:bg-white/50 text-muted-foreground/30"
+        <button
+          className="p-3 rounded-full bg-white/40 backdrop-blur-sm text-primary/40 hover:text-primary transition-colors"
           onClick={() => setGateOpen(true)}
         >
-          <Settings className="w-5 h-5" />
-        </Button>
+          <Settings className="w-6 h-6" />
+        </button>
       </header>
 
-      <main className="p-4 md:p-8 max-w-6xl mx-auto">
+      <main className="relative p-4 md:p-8 max-w-7xl mx-auto z-10">
         {!selectedCategory ? (
-          /* Main Menu: 4 Big Buttons */
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 pt-4">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as Category)}
                 className={`
-                  ${cat.color} ${cat.hover}
-                  h-56 md:h-72 rounded-[3rem] flex flex-col items-center justify-center gap-4
-                  transition-all active:scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] 
-                  border-b-[12px] border-black/20 hover:border-b-[6px] hover:translate-y-[6px] active:border-b-0 active:translate-y-[12px]
-                  relative overflow-hidden group
+                  relative group h-64 md:h-80 rounded-[4rem] bg-gradient-to-br ${cat.color}
+                  border-[12px] border-white shadow-2xl transition-all duration-300
+                  hover:scale-[1.05] active:scale-95 hover:-rotate-2
+                  flex flex-col items-center justify-center overflow-hidden
                 `}
               >
-                <div className={`bg-white/30 p-8 rounded-full shadow-inner ${cat.animation}`}>
-                  <cat.icon className="w-20 h-20 md:w-24 md:h-24 text-white drop-shadow-lg" strokeWidth={3} />
+                <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-xl group-hover:scale-150 transition-transform" />
+                <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-black/10 rounded-full blur-2xl" />
+
+                <div className="bg-white/95 p-8 rounded-full shadow-2xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500">
+                  <cat.icon className="w-20 h-20 md:w-28 md:h-28 text-primary" strokeWidth={2.5} />
                 </div>
-                <span className="text-white font-heading text-3xl md:text-4xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
-                  {cat.label}
-                </span>
                 
-                {/* Visual "shine" effect */}
-                <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-white/20 skew-x-[-25deg] group-hover:left-[150%] transition-all duration-700 ease-in-out" />
+                <h2 className="mt-6 text-white font-heading text-4xl md:text-5xl tracking-wide drop-shadow-2xl">
+                  {cat.label}
+                </h2>
+
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </button>
             ))}
           </div>
         ) : (
-          /* Category View: Content Grid */
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            {filteredPlaylist?.map((item) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 animate-in zoom-in-95 duration-500">
+            {playlist.slice(0, 6).map((item) => (
               <div
                 key={item.id}
                 onClick={() => handlePlay(item)}
-                className="group relative aspect-[4/3] rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-xl transition-all hover:scale-[1.02] bg-white border-4 border-white"
+                className="group relative aspect-[4/3] rounded-[3rem] overflow-hidden cursor-pointer shadow-2xl bg-white border-[10px] border-white hover:border-primary/20 transition-all"
               >
-                <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors flex items-center justify-center">
-                  <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-8 h-8 text-primary ml-1 fill-primary" />
+                <img src={item.thumbnail} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/40 flex items-center justify-center">
+                  <div className="w-24 h-24 bg-white/90 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                    <Play className="w-12 h-12 text-primary ml-2 fill-primary" />
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
-                  <h3 className="text-white font-heading text-xl drop-shadow-md">
-                    {item.title}
-                  </h3>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="text-white font-heading text-3xl drop-shadow-lg">{item.title}</h3>
                 </div>
               </div>
             ))}
@@ -144,87 +140,46 @@ export default function KidsDashboard() {
         )}
       </main>
 
-      {/* Parent Gate Modal */}
       <Dialog open={gateOpen} onOpenChange={setGateOpen}>
-        <DialogContent className="sm:max-w-md bg-white rounded-3xl border-0">
+        <DialogContent className="sm:max-w-md bg-white rounded-[3rem] border-0 shadow-2xl">
           <DialogHeader>
-            <DialogTitle className="text-center font-heading text-2xl text-secondary-foreground">
-              Área dos Pais
-            </DialogTitle>
-            <DialogDescription className="text-center">
-              Resolva para entrar: Quanto é {mathProblem}?
-            </DialogDescription>
+            <DialogTitle className="text-center font-heading text-3xl text-primary">ÁREA DOS PAIS</DialogTitle>
+            <DialogDescription className="text-center text-lg">Quanto é {mathProblem}?</DialogDescription>
           </DialogHeader>
-          <form onSubmit={handleGateSubmit} className="space-y-4 mt-4">
+          <form onSubmit={handleGateSubmit} className="space-y-6 mt-4">
             <div className="flex justify-center">
-              <Input
-                type="number"
-                value={gateAnswer}
-                onChange={(e) => setGateAnswer(e.target.value)}
-                className="text-center text-3xl font-bold w-32 h-16 rounded-2xl bg-muted"
-                placeholder="?"
-                autoFocus
-              />
+              <Input type="number" value={gateAnswer} onChange={(e) => setGateAnswer(e.target.value)} className="text-center text-5xl font-bold w-40 h-24 rounded-3xl bg-muted border-4 border-primary/10" placeholder="?" autoFocus />
             </div>
             <div className="flex justify-center gap-4">
-               <Button type="button" variant="ghost" onClick={() => setGateOpen(false)}>Cancelar</Button>
-               <Button type="submit" className="rounded-xl px-8 font-heading bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                 Entrar <Lock className="ml-2 w-4 h-4" />
-               </Button>
+              <Button type="button" variant="ghost" className="text-lg" onClick={() => setGateOpen(false)}>Sair</Button>
+              <Button type="submit" className="rounded-2xl px-12 h-16 text-xl font-heading bg-primary text-white hover:bg-primary/90">ENTRAR <Lock className="ml-2 w-6 h-6" /></Button>
             </div>
           </form>
         </DialogContent>
       </Dialog>
 
-      {/* Video Player Modal (Mock) */}
       <Dialog open={videoModalOpen} onOpenChange={setVideoModalOpen}>
-        <DialogContent className="max-w-4xl w-full h-[80vh] bg-black p-0 border-0 rounded-3xl overflow-hidden flex flex-col">
-          <div className="absolute top-4 right-4 z-50">
-             <Button 
-               size="icon" 
-               variant="secondary" 
-               className="rounded-full h-12 w-12 bg-white/20 hover:bg-white/40 text-white border-0"
-               onClick={() => setVideoModalOpen(false)}
-             >
-               <X className="w-8 h-8" />
-             </Button>
+        <DialogContent className="max-w-5xl w-full h-[85vh] bg-black p-0 border-0 rounded-[4rem] overflow-hidden">
+          <div className="absolute top-6 right-6 z-50">
+            <Button size="icon" variant="secondary" className="rounded-full h-16 w-16 bg-white/20 text-white" onClick={() => setVideoModalOpen(false)}>
+              <X className="w-10 h-10" />
+            </Button>
           </div>
           <div className="flex-1 flex items-center justify-center bg-zinc-900 relative">
-             {currentVideo && (
-               <>
-                <img src={currentVideo.thumbnail} className="absolute inset-0 w-full h-full object-cover opacity-30 blur-sm" />
+            {currentVideo && (
+              <>
+                <img src={currentVideo.thumbnail} className="absolute inset-0 w-full h-full object-cover opacity-20 blur-xl" />
                 <div className="z-10 text-center">
-                   <div className="w-24 h-24 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce-sm">
-                      <Play className="w-12 h-12 text-white ml-2 fill-white" />
-                   </div>
-                   <h2 className="text-white text-3xl font-heading mb-2">{currentVideo.title}</h2>
-                   <p className="text-zinc-400">Simulação de Player de Vídeo</p>
+                  <div className="w-32 h-32 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+                    <Play className="w-16 h-16 text-white ml-2 fill-white" />
+                  </div>
+                  <h2 className="text-white text-5xl font-heading mb-4 tracking-wide">{currentVideo.title}</h2>
                 </div>
-               </>
-             )}
+              </>
+            )}
           </div>
         </DialogContent>
       </Dialog>
     </div>
-  );
-}
-
-function ArrowLeft(props: any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m12 19-7-7 7-7" />
-      <path d="M19 12H5" />
-    </svg>
   );
 }
