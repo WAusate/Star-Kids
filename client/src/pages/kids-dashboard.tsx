@@ -48,18 +48,18 @@ export default function KidsDashboard() {
   }
 
   const categories = [
-    { id: "desenhos", label: "Desenhos Animados", icon: Tv, color: "bg-blue-400", hover: "hover:bg-blue-500" },
-    { id: "jogos", label: "Jogos", icon: Gamepad2, color: "bg-green-400", hover: "hover:bg-green-500" },
-    { id: "musicas", label: "Músicas", icon: Music, color: "bg-yellow-400", hover: "hover:bg-yellow-500" },
-    { id: "historias", label: "Histórias", icon: BookOpen, color: "bg-purple-400", hover: "hover:bg-purple-500" },
+    { id: "desenhos", label: "Desenhos Animados", icon: Tv, color: "bg-blue-400", hover: "hover:bg-blue-500", animation: "animate-bounce" },
+    { id: "jogos", label: "Jogos", icon: Gamepad2, color: "bg-green-400", hover: "hover:bg-green-500", animation: "animate-pulse" },
+    { id: "musicas", label: "Músicas", icon: Music, color: "bg-yellow-400", hover: "hover:bg-yellow-500", animation: "animate-bounce [animation-delay:200ms]" },
+    { id: "historias", label: "Histórias", icon: BookOpen, color: "bg-purple-400", hover: "hover:bg-purple-500", animation: "animate-pulse [animation-delay:400ms]" },
   ];
 
   const filteredPlaylist = selectedCategory 
-    ? playlist.slice(0, 6) // In a real app, we'd filter by category type too. For now, we use the global filtered playlist.
+    ? playlist.slice(0, 6) 
     : null;
 
   return (
-    <div className="min-h-screen bg-background pb-8">
+    <div className="min-h-screen bg-background pb-8 overflow-x-hidden">
       {/* Header */}
       <header className="p-4 flex justify-between items-center bg-transparent sticky top-0 z-10">
         <div className="flex items-center gap-3">
@@ -67,19 +67,19 @@ export default function KidsDashboard() {
             <Button 
               variant="ghost" 
               onClick={() => setSelectedCategory(null)}
-              className="rounded-full h-12 w-12 bg-white/80 shadow-sm"
+              className="rounded-full h-14 w-14 bg-white shadow-lg hover:bg-white/90 active:scale-90 transition-transform flex items-center justify-center"
             >
-              <ArrowLeft className="w-6 h-6" />
+              <ArrowLeft className="w-8 h-8 text-primary" strokeWidth={3} />
             </Button>
           )}
-          <h1 className="text-2xl md:text-3xl font-heading text-primary drop-shadow-sm">
+          <h1 className="text-3xl md:text-4xl font-heading text-primary drop-shadow-[0_2px_2px_rgba(255,255,255,0.8)]">
             {selectedCategory ? categories.find(c => c.id === selectedCategory)?.label : `Olá, ${childName || "Amiguinho"}!`}
           </h1>
         </div>
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full hover:bg-white/50 text-muted-foreground/40"
+          className="rounded-full hover:bg-white/50 text-muted-foreground/30"
           onClick={() => setGateOpen(true)}
         >
           <Settings className="w-5 h-5" />
@@ -89,23 +89,28 @@ export default function KidsDashboard() {
       <main className="p-4 md:p-8 max-w-6xl mx-auto">
         {!selectedCategory ? (
           /* Main Menu: 4 Big Buttons */
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4">
             {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id as Category)}
                 className={`
                   ${cat.color} ${cat.hover}
-                  h-48 md:h-64 rounded-[2.5rem] flex flex-col items-center justify-center gap-4
-                  transition-all active:scale-95 shadow-xl hover:shadow-2xl border-8 border-white/20
+                  h-56 md:h-72 rounded-[3rem] flex flex-col items-center justify-center gap-4
+                  transition-all active:scale-90 shadow-[0_20px_50px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.15)] 
+                  border-b-[12px] border-black/20 hover:border-b-[6px] hover:translate-y-[6px] active:border-b-0 active:translate-y-[12px]
+                  relative overflow-hidden group
                 `}
               >
-                <div className="bg-white/20 p-6 rounded-full">
-                  <cat.icon className="w-16 h-16 md:w-20 md:h-20 text-white" strokeWidth={2.5} />
+                <div className={`bg-white/30 p-8 rounded-full shadow-inner ${cat.animation}`}>
+                  <cat.icon className="w-20 h-20 md:w-24 md:h-24 text-white drop-shadow-lg" strokeWidth={3} />
                 </div>
-                <span className="text-white font-heading text-2xl md:text-3xl drop-shadow-sm">
+                <span className="text-white font-heading text-3xl md:text-4xl drop-shadow-[0_2px_4px_rgba(0,0,0,0.3)]">
                   {cat.label}
                 </span>
+                
+                {/* Visual "shine" effect */}
+                <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-white/20 skew-x-[-25deg] group-hover:left-[150%] transition-all duration-700 ease-in-out" />
               </button>
             ))}
           </div>
