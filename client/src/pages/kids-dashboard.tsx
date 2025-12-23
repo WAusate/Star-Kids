@@ -105,14 +105,6 @@ export default function KidsDashboard() {
                     <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
                   </div>
                 </button>
-                
-                {/* Label Pill */}
-                <div className={`
-                  mt-6 ${cat.color} px-8 py-3 rounded-full border-4 border-white shadow-xl
-                  text-white font-heading text-xl md:text-2xl tracking-wider text-center
-                `}>
-                  {cat.label}
-                </div>
               </div>
             ))}
           </div>
