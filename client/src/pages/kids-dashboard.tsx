@@ -14,7 +14,7 @@ import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png
 import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
 import musicasImg from "@assets/generated_images/cartoon_guitar_and_drum.png";
 import historiasImg from "@assets/generated_images/open_magical_storybook_with_dragons.png";
-import cloudImg from "@assets/generated_images/puffy_3d_cloud_with_pink_border.png";
+import cloudImg from "@assets/generated_images/colorful_gradient_3d_cartoon_cloud.png";
 
 type Category = "desenhos" | "jogos" | "musicas" | "historias";
 
