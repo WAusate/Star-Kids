@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
 // Import images
-import bgImage from "@assets/generated_images/magical_floating_islands_without_rainbow.png";
+import bgImage from "@assets/generated_images/bright_sky_with_fluffy_clouds.png";
 import sunImg from "@assets/generated_images/happy_cartoon_sun_waving.png";
 import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png";
 import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
