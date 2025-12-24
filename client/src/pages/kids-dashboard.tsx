@@ -74,8 +74,8 @@ export default function KidsDashboard() {
       <header className="relative pt-6 flex flex-col items-center z-20">
         <div className="relative">
           {/* Cloud Shape Wrapper */}
-          <div className="bg-white rounded-3xl px-8 py-3 shadow-xl border-b-4 border-blue-200/40">
-            <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight">
+          <div className="cloud-shape">
+            <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight relative z-10">
               <span className="text-pink-500 block">EI,</span>
               <span className="text-blue-600 block">AMIGO!</span>
             </h1>
