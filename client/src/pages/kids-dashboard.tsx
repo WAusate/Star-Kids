@@ -14,6 +14,7 @@ import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png
 import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
 import musicasImg from "@assets/generated_images/cartoon_guitar_and_drum.png";
 import historiasImg from "@assets/generated_images/open_magical_storybook_with_dragons.png";
+import cloudImg from "@assets/generated_images/puffy_3d_cloud_with_pink_border.png";
 
 type Category = "desenhos" | "jogos" | "musicas" | "historias";
 
@@ -72,14 +73,15 @@ export default function KidsDashboard() {
 
       {/* Cloud Header */}
       <header className="relative pt-6 flex flex-col items-center z-20">
-        <div className="relative">
-          {/* Cloud Shape Wrapper */}
-          <div className="cloud-shape">
-            <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight relative z-10">
-              <span className="text-pink-500 block">EI,</span>
-              <span className="text-blue-600 block">AMIGO!</span>
-            </h1>
-          </div>
+        <div className="relative w-80 h-40 md:w-96 md:h-48 flex items-center justify-center">
+          {/* Cloud Image */}
+          <img src={cloudImg} alt="Cloud" className="absolute inset-0 w-full h-full object-contain" />
+          
+          {/* Text overlay */}
+          <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight relative z-10">
+            <span className="text-pink-500 block">EI,</span>
+            <span className="text-blue-600 block">AMIGO!</span>
+          </h1>
           
           {/* Settings Button */}
           <button
