@@ -70,33 +70,21 @@ export default function KidsDashboard() {
       <img src={sunImg} className="absolute top-4 left-4 w-24 h-24" alt="Sun" />
       <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
-      {/* Cloud Header */}
-      <header className="relative pt-6 flex flex-col items-center z-20">
-        <div className="relative flex items-center justify-center transition-all duration-300" style={{ 
-          width: 'fit-content',
-          minWidth: '320px', 
-          height: '160px',
-          paddingLeft: '24px',
-          paddingRight: '24px'
-        }}>
-          {/* Cloud Image */}
-          <img src={cloudImg} alt="Cloud" className="absolute inset-0 w-full h-full object-contain" />
-          
-          {/* Text overlay */}
-          <h1 className="text-4xl md:text-6xl font-heading text-center leading-none relative z-10">
-            <span className="text-pink-500 block">EI,</span>
-            <span className="text-blue-600 block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
-          </h1>
-          
-          {/* Settings Button */}
-          <button
-            className="fixed top-6 right-6 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform z-50"
-            onClick={() => setGateOpen(true)}
-          >
-            <Settings className="w-8 h-8" />
-          </button>
-        </div>
+      {/* Header */}
+      <header className="relative pt-8 flex flex-col items-center z-20">
+        <h1 className="text-4xl md:text-6xl font-heading text-center leading-none">
+          <span className="text-pink-500 block">EI,</span>
+          <span className="text-blue-600 block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
+        </h1>
       </header>
+
+      {/* Settings Button */}
+      <button
+        className="fixed top-6 right-6 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform z-50"
+        onClick={() => setGateOpen(true)}
+      >
+        <Settings className="w-8 h-8" />
+      </button>
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
