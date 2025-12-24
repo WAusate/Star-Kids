@@ -71,11 +71,11 @@ export default function KidsDashboard() {
       <img src={sunImg} className="absolute top-48 right-4 w-20 h-20 animate-bounce-sm" alt="Sun" />
 
       {/* Cloud Header */}
-      <header className="relative pt-12 flex flex-col items-center z-20">
+      <header className="relative pt-6 flex flex-col items-center z-20">
         <div className="relative">
           {/* Cloud Shape Wrapper */}
-          <div className="bg-white rounded-[4rem] px-12 py-6 shadow-2xl border-b-8 border-blue-200/50">
-            <h1 className="text-4xl md:text-6xl font-heading text-center leading-tight">
+          <div className="bg-white rounded-3xl px-8 py-3 shadow-xl border-b-4 border-blue-200/40">
+            <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight">
               <span className="text-pink-500 block">EI,</span>
               <span className="text-blue-600 block">AMIGO!</span>
             </h1>
