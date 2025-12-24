@@ -78,7 +78,7 @@ export default function KidsDashboard() {
           <img src={cloudImg} alt="Cloud" className="absolute inset-0 w-full h-full object-contain" />
           
           {/* Text overlay */}
-          <h1 className="text-2xl md:text-4xl font-heading text-center leading-tight relative z-10">
+          <h1 className="text-4xl md:text-6xl font-heading text-center leading-tight relative z-10">
             <span className="text-pink-500 block">EI,</span>
             <span className="text-blue-600 block">AMIGO!</span>
           </h1>
