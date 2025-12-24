@@ -79,7 +79,7 @@ export default function KidsDashboard() {
           {/* Text overlay */}
           <h1 className="text-4xl md:text-6xl font-heading text-center leading-none relative z-10">
             <span className="text-pink-500 block">EI,</span>
-            <span className="text-blue-600 block">AMIGO!</span>
+            <span className="text-blue-600 block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
           </h1>
           
           {/* Settings Button */}
