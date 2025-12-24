@@ -72,12 +72,12 @@ export default function KidsDashboard() {
 
       {/* Cloud Header */}
       <header className="relative pt-6 flex flex-col items-center z-20">
-        <div className="relative w-80 h-40 md:w-96 md:h-48 flex items-center justify-center">
+        <div className="relative flex items-center justify-center" style={{ minWidth: childName ? Math.max(320, childName.length * 35) : 320, minHeight: 160 }}>
           {/* Cloud Image */}
           <img src={cloudImg} alt="Cloud" className="absolute inset-0 w-full h-full object-contain" />
           
           {/* Text overlay */}
-          <h1 className="text-4xl md:text-6xl font-heading text-center leading-none relative z-10">
+          <h1 className="text-4xl md:text-6xl font-heading text-center leading-none relative z-10 px-4">
             <span className="text-pink-500 block">EI,</span>
             <span className="text-blue-600 block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
           </h1>
