@@ -67,9 +67,8 @@ export default function KidsDashboard() {
       />
       
       {/* Decorative Suns */}
-      <img src={sunImg} className="absolute top-4 left-4 w-24 h-24 animate-bounce-sm" alt="Sun" />
-      <img src={sunImg} className="absolute top-10 right-24 w-32 h-32 animate-pulse" alt="Sun" />
-      <img src={sunImg} className="absolute top-48 right-4 w-20 h-20 animate-bounce-sm" alt="Sun" />
+      <img src={sunImg} className="absolute top-4 left-4 w-24 h-24" alt="Sun" />
+      <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
       {/* Cloud Header */}
       <header className="relative pt-6 flex flex-col items-center z-20">
