@@ -83,7 +83,7 @@ export default function KidsDashboard() {
           
           {/* Settings Button */}
           <button
-            className="absolute -top-4 -right-12 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform"
+            className="fixed top-6 right-6 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform z-50"
             onClick={() => setGateOpen(true)}
           >
             <Settings className="w-8 h-8" />
