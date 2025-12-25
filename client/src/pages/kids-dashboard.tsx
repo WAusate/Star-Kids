@@ -88,7 +88,7 @@ export default function KidsDashboard() {
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="flex flex-col md:grid md:grid-cols-4 gap-8 md:gap-12">
+          <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-12">
             {categories.map((cat) => (
               <div key={cat.id} className="flex flex-col items-center pt-2">
                 <button
