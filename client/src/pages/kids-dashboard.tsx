@@ -88,9 +88,9 @@ export default function KidsDashboard() {
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
             {categories.map((cat) => (
-              <div key={cat.id} className="flex flex-col items-center pt-8">
+              <div key={cat.id} className="flex flex-col items-center pt-2">
                 <button
                   onClick={() => setSelectedCategory(cat.id as Category)}
                   className="relative group w-50 h-50 md:w-70 md:h-70 transition-all duration-300 hover:scale-110 active:scale-95 animate-float"
