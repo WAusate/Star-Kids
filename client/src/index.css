@@ -44,49 +44,49 @@
 }
 
 :root {
-  /* Colorful, Playful Theme "Soft Pop" */
-  --background: 40 30% 97%;
-  --foreground: 220 20% 20%;
-  --card: 0 0% 100%;
-  --card-foreground: 220 20% 20%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 220 20% 20%;
-  --primary: 210 85% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 45 90% 60%;
-  --secondary-foreground: 30 40% 20%;
-  --muted: 210 20% 94%;
-  --muted-foreground: 220 10% 40%;
-  --accent: 6 80% 65%;
+  /* StarKids Theme - Based on Logo Colors */
+  --background: 235 45% 12%; /* Dark space blue from background */
+  --foreground: 0 0% 100%;
+  --card: 235 45% 15%;
+  --card-foreground: 0 0% 100%;
+  --popover: 235 45% 15%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 42 94% 55%; /* Golden yellow from top of star */
+  --primary-foreground: 235 45% 10%;
+  --secondary: 18 90% 55%; /* Orange from bottom of star */
+  --secondary-foreground: 0 0% 100%;
+  --muted: 235 30% 25%;
+  --muted-foreground: 235 15% 75%;
+  --accent: 350 85% 55%; /* Reddish-orange from logo tips */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
-  --ring: 210 85% 60%;
+  --border: 235 30% 25%;
+  --input: 235 30% 25%;
+  --ring: 42 94% 55%;
   --radius: 1.5rem;
 }
 
 .dark {
-  --background: 220 30% 10%;
-  --foreground: 210 20% 98%;
-  --card: 220 30% 12%;
-  --card-foreground: 210 20% 98%;
-  --popover: 220 30% 12%;
-  --popover-foreground: 210 20% 98%;
-  --primary: 210 85% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 45 90% 60%;
-  --secondary-foreground: 30 40% 20%;
-  --muted: 220 30% 15%;
-  --muted-foreground: 215 20% 65%;
-  --accent: 6 80% 65%;
-  --accent-foreground: 210 40% 98%;
+  --background: 235 45% 8%;
+  --foreground: 0 0% 100%;
+  --card: 235 45% 10%;
+  --card-foreground: 0 0% 100%;
+  --popover: 235 45% 10%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 42 94% 55%;
+  --primary-foreground: 235 45% 10%;
+  --secondary: 18 90% 55%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 235 30% 20%;
+  --muted-foreground: 235 15% 70%;
+  --accent: 350 85% 55%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 40% 98%;
-  --border: 220 30% 18%;
-  --input: 220 30% 18%;
-  --ring: 210 85% 60%;
+  --border: 235 30% 20%;
+  --input: 235 30% 20%;
+  --ring: 42 94% 55%;
 }
 
 @layer base {
