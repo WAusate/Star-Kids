@@ -71,19 +71,17 @@ export default function KidsDashboard() {
       <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500 to-blue-700 py-6 md:py-8 px-6 z-20 shadow-lg">
-        <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white">
+      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-6 md:py-8 px-6 z-20 shadow-lg flex items-center justify-between">
+        <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
+        <button
+          className="p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform"
+          onClick={() => setGateOpen(true)}
+        >
+          <Settings className="w-8 h-8" />
+        </button>
       </header>
-
-      {/* Settings Button */}
-      <button
-        className="fixed top-6 right-6 p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform z-50"
-        onClick={() => setGateOpen(true)}
-      >
-        <Settings className="w-8 h-8" />
-      </button>
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
