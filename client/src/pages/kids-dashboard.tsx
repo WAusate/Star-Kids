@@ -71,7 +71,7 @@ export default function KidsDashboard() {
       {/* Header */}
       <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center gap-4">
         <div className="flex-none">
-          <img src={headerLogo} alt="StarKids Logo" className="h-12 md:h-16 w-auto object-contain" />
+          <img src={headerLogo} alt="StarKids Logo" className="h-20 md:h-32 w-auto object-contain" />
         </div>
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
