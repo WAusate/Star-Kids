@@ -71,10 +71,10 @@ export default function KidsDashboard() {
       <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
       {/* Header */}
-      <header className="relative pt-8 flex flex-col items-center z-20">
-        <h1 className="text-4xl md:text-6xl font-heading text-center leading-none">
-          <span className="text-pink-500 block">EI,</span>
-          <span className="text-blue-600 block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
+      <header className="relative bg-gradient-to-r from-blue-600 to-blue-700 py-6 md:py-8 px-6 z-20 shadow-lg">
+        <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white">
+          <span className="block">EI,</span>
+          <span className="block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
         </h1>
       </header>
 
@@ -88,7 +88,7 @@ export default function KidsDashboard() {
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-20">
+          <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-60">
             {categories.map((cat) => (
               <div key={cat.id} className="flex flex-col items-center pt-2">
                 <button
