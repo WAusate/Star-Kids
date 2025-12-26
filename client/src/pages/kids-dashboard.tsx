@@ -68,7 +68,7 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-6 md:py-8 px-6 z-20 shadow-lg flex items-center justify-between">
+      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
