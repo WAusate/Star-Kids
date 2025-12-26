@@ -8,12 +8,14 @@ import { AppProvider } from "./lib/store";
 import LoginPage from "./pages/login";
 import KidsDashboard from "./pages/kids-dashboard";
 import ParentSettings from "./pages/parent-settings";
+import CategoryPage from "./pages/category";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={LoginPage} />
       <Route path="/kids" component={KidsDashboard} />
+      <Route path="/category/:id" component={CategoryPage} />
       <Route path="/parent" component={ParentSettings} />
       <Route component={NotFound} />
     </Switch>

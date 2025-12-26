@@ -44,49 +44,49 @@
 }
 
 :root {
-  /* StarKids Theme - Colors strictly from logo */
-  --background: 232 47% 10%; /* Dark Navy/Space Blue background */
-  --foreground: 0 0% 100%;
-  --card: 232 47% 12%;
+  /* StarKids Theme - Cores da logo */
+  --background: 230 30% 8%; /* Azul marinho escuro #0f1628 */
+  --foreground: 0 0% 100%; /* Branco */
+  --card: 230 30% 12%;
   --card-foreground: 0 0% 100%;
-  --popover: 232 47% 12%;
+  --popover: 230 30% 12%;
   --popover-foreground: 0 0% 100%;
-  --primary: 42 94% 55%; /* Golden yellow from star top */
-  --primary-foreground: 232 47% 10%;
-  --secondary: 18 90% 55%; /* Orange from star bottom */
+  --primary: 39 100% 50%; /* Laranja vibrante #FF8C42 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 5 100% 60%; /* Laranja vermelho #FF6B35 */
   --secondary-foreground: 0 0% 100%;
-  --muted: 232 30% 20%;
-  --muted-foreground: 232 15% 75%;
-  --accent: 358 80% 55%; /* Reddish-orange from logo tips */
-  --accent-foreground: 0 0% 100%;
+  --muted: 230 20% 25%;
+  --muted-foreground: 230 15% 75%;
+  --accent: 42 94% 55%; /* Amarelo #FFB84D */
+  --accent-foreground: 230 30% 8%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 232 30% 20%;
-  --input: 232 30% 20%;
-  --ring: 42 94% 55%;
+  --border: 230 20% 20%;
+  --input: 230 20% 20%;
+  --ring: 39 100% 50%;
   --radius: 1.5rem;
 }
 
 .dark {
-  --background: 232 47% 8%;
+  --background: 230 30% 6%;
   --foreground: 0 0% 100%;
-  --card: 232 47% 10%;
+  --card: 230 30% 10%;
   --card-foreground: 0 0% 100%;
-  --popover: 232 47% 10%;
+  --popover: 230 30% 10%;
   --popover-foreground: 0 0% 100%;
-  --primary: 42 94% 55%;
-  --primary-foreground: 232 47% 10%;
-  --secondary: 18 90% 55%;
+  --primary: 39 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 5 100% 60%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 232 30% 15%;
-  --muted-foreground: 232 15% 70%;
-  --accent: 358 80% 55%;
-  --accent-foreground: 0 0% 100%;
+  --muted: 230 20% 20%;
+  --muted-foreground: 230 15% 70%;
+  --accent: 42 94% 55%;
+  --accent-foreground: 230 30% 8%;
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 40% 98%;
-  --border: 232 30% 18%;
-  --input: 232 30% 18%;
-  --ring: 42 94% 55%;
+  --border: 230 20% 18%;
+  --input: 230 20% 18%;
+  --ring: 39 100% 50%;
 }
 
 @layer base {
@@ -95,7 +95,7 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground selection:bg-primary/30;
-    background-image: radial-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--accent) / 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
   h1, h2, h3, h4, h5, h6 {
@@ -128,4 +128,21 @@
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Netflix-style hover effect */
+.netflix-card {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              scale 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform-origin: center;
+}
+
+.netflix-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(255, 140, 66, 0.3);
+}
+
+.netflix-card:active {
+  transform: scale(0.95) translateY(-2px);
 }
