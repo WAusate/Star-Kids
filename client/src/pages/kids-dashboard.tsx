@@ -66,9 +66,6 @@ export default function KidsDashboard() {
         style={{ backgroundImage: `url(${bgImage})` }}
       />
       
-      {/* Decorative Suns */}
-      <img src={sunImg} className="absolute top-4 left-4 w-24 h-24" alt="Sun" />
-      <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
       {/* Header */}
       <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-6 md:py-8 px-6 z-20 shadow-lg flex items-center justify-between">
