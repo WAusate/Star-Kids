@@ -73,10 +73,10 @@ export default function KidsDashboard() {
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
         <button
-          className="p-3 rounded-full bg-white shadow-xl text-blue-400 border-4 border-blue-50 hover:scale-110 transition-transform"
+          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform"
           onClick={() => setGateOpen(true)}
         >
-          <Settings className="w-8 h-8" />
+          <Settings className="w-5 h-5" />
         </button>
       </header>
 
