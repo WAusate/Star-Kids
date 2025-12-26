@@ -64,17 +64,12 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-orange-500/80 via-red-500/70 to-orange-500/80 backdrop-blur-lg h-20 md:h-24 px-6 z-50 shadow-2xl border-b border-white/10 flex items-center gap-4">
-        <div className="absolute left-6 top-1/2 -translate-y-1/2 z-30">
-          <img src={headerLogo} alt="StarKids Logo" className="h-25 md:h-32 w-auto object-contain" />
-        </div>
-        <div className="flex-1 text-center pl-24 md:pl-40">
-          <h1 className="text-3xl md:text-5xl font-heading leading-none text-white">
-            EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
-          </h1>
-        </div>
+      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
+        <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
+          EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
+        </h1>
         <button
-          className="p-2 rounded-full bg-white/20 hover:bg-white/30 text-white/80 hover:text-white transition-all flex-none relative z-30 border border-white/20"
+          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform"
           onClick={() => setGateOpen(true)}
           data-testid="button-settings"
         >
