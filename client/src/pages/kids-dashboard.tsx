@@ -69,9 +69,9 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 h-20 md:h-24 px-6 z-20 shadow-lg flex items-center gap-4">
+      <header className="relative bg-gradient-to-r from-primary/80 via-primary/60 to-secondary/80 backdrop-blur-md h-20 md:h-24 px-6 z-20 shadow-xl border-b border-white/10 flex items-center gap-4">
         <div className="absolute left-6 top-1/2 -translate-y-1/2 z-30">
-          <img src={headerLogo} alt="StarKids Logo" className="h-20 md:h-32 w-auto object-contain" />
+          <img src={headerLogo} alt="StarKids Logo" className="h-25 md:h-32 w-auto object-contain" />
         </div>
         <div className="flex-1 text-center pl-24 md:pl-40">
           <h1 className="text-3xl md:text-5xl font-heading leading-none text-white">
