@@ -86,25 +86,28 @@ export default function KidsDashboard() {
         <Settings className="w-8 h-8" />
       </button>
 
-      <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
+      <main className="relative z-10">
         {!selectedCategory ? (
-          <div className="flex flex-col md:flex gap-0 md:gap-6 md:justify-center md:items-center md:flex-row">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id as Category)}
-                className="flex flex-col items-center gap-3 transition-all duration-300 hover:scale-110 active:scale-95 group w-full md:w-auto"
-              >
-                {/* Character/Object Image - Floating */}
-                <div className="relative w-56 h-56 md:w-64 md:h-64 flex items-center justify-center animate-float">
-                  <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl shadow-2xl p-6 md:p-10 my-8 mx-auto max-w-5xl">
+            <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-6 md:justify-center md:items-center">
+              {categories.map((cat) => (
+                <div key={cat.id} className="flex flex-col items-center gap-4">
+                  <button
+                    onClick={() => setSelectedCategory(cat.id as Category)}
+                    className="relative group transition-all duration-300 hover:scale-110 active:scale-95 animate-float"
+                  >
+                    {/* Character/Object Image - Floating */}
+                    <div className="relative w-56 h-56 md:w-52 md:h-52 flex items-center justify-center">
+                      <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
+                    </div>
+                  </button>
+                  {/* Label Badge */}
+                  <div className={`${cat.color} px-6 py-2 rounded-full shadow-lg border-4 border-white font-heading text-lg font-bold text-white`}>
+                    {cat.label}
+                  </div>
                 </div>
-                {/* Label Badge */}
-                <div className={`${cat.color} px-8 py-3 rounded-full shadow-lg border-4 border-white font-heading text-2xl font-bold text-white`}>
-                  {cat.label}
-                </div>
-              </button>
-            ))}
+              ))}
+            </div>
           </div>
         ) : (
           <div className="animate-in zoom-in-95 duration-500">
