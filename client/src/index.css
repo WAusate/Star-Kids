@@ -44,48 +44,48 @@
 }
 
 :root {
-  /* StarKids Theme - Based on Logo Colors */
-  --background: 235 45% 12%; /* Dark space blue from background */
+  /* StarKids Theme - Colors strictly from logo */
+  --background: 232 47% 10%; /* Dark Navy/Space Blue background */
   --foreground: 0 0% 100%;
-  --card: 235 45% 15%;
+  --card: 232 47% 12%;
   --card-foreground: 0 0% 100%;
-  --popover: 235 45% 15%;
+  --popover: 232 47% 12%;
   --popover-foreground: 0 0% 100%;
-  --primary: 42 94% 55%; /* Golden yellow from top of star */
-  --primary-foreground: 235 45% 10%;
-  --secondary: 18 90% 55%; /* Orange from bottom of star */
+  --primary: 42 94% 55%; /* Golden yellow from star top */
+  --primary-foreground: 232 47% 10%;
+  --secondary: 18 90% 55%; /* Orange from star bottom */
   --secondary-foreground: 0 0% 100%;
-  --muted: 235 30% 25%;
-  --muted-foreground: 235 15% 75%;
-  --accent: 350 85% 55%; /* Reddish-orange from logo tips */
+  --muted: 232 30% 20%;
+  --muted-foreground: 232 15% 75%;
+  --accent: 358 80% 55%; /* Reddish-orange from logo tips */
   --accent-foreground: 0 0% 100%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 210 40% 98%;
-  --border: 235 30% 25%;
-  --input: 235 30% 25%;
+  --border: 232 30% 20%;
+  --input: 232 30% 20%;
   --ring: 42 94% 55%;
   --radius: 1.5rem;
 }
 
 .dark {
-  --background: 235 45% 8%;
+  --background: 232 47% 8%;
   --foreground: 0 0% 100%;
-  --card: 235 45% 10%;
+  --card: 232 47% 10%;
   --card-foreground: 0 0% 100%;
-  --popover: 235 45% 10%;
+  --popover: 232 47% 10%;
   --popover-foreground: 0 0% 100%;
   --primary: 42 94% 55%;
-  --primary-foreground: 235 45% 10%;
+  --primary-foreground: 232 47% 10%;
   --secondary: 18 90% 55%;
   --secondary-foreground: 0 0% 100%;
-  --muted: 235 30% 20%;
-  --muted-foreground: 235 15% 70%;
-  --accent: 350 85% 55%;
+  --muted: 232 30% 15%;
+  --muted-foreground: 232 15% 70%;
+  --accent: 358 80% 55%;
   --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 30%;
   --destructive-foreground: 210 40% 98%;
-  --border: 235 30% 20%;
-  --input: 235 30% 20%;
+  --border: 232 30% 18%;
+  --input: 232 30% 18%;
   --ring: 42 94% 55%;
 }
 
