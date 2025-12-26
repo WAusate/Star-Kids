@@ -88,19 +88,22 @@ export default function KidsDashboard() {
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
-          <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-60">
+          <div className="flex flex-col md:flex gap-0 md:gap-6 md:justify-center md:items-center md:flex-row">
             {categories.map((cat) => (
-              <div key={cat.id} className="flex flex-col items-center pt-2">
-                <button
-                  onClick={() => setSelectedCategory(cat.id as Category)}
-                  className="relative group w-70 h-70 md:w-70 md:h-70 transition-all duration-300 hover:scale-110 active:scale-95 animate-float"
-                >
-                  {/* Character/Object Image - Floating */}
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
-                  </div>
-                </button>
-              </div>
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id as Category)}
+                className="flex flex-col items-center gap-3 transition-all duration-300 hover:scale-110 active:scale-95 group w-full md:w-auto"
+              >
+                {/* Character/Object Image - Floating */}
+                <div className="relative w-56 h-56 md:w-64 md:h-64 flex items-center justify-center animate-float">
+                  <img src={cat.img} alt={cat.label} className="w-full h-full object-contain drop-shadow-2xl filter brightness-110" />
+                </div>
+                {/* Label Badge */}
+                <div className={`${cat.color} px-8 py-3 rounded-full shadow-lg border-4 border-white font-heading text-2xl font-bold text-white`}>
+                  {cat.label}
+                </div>
+              </button>
             ))}
           </div>
         ) : (
