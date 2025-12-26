@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
 // Import images
+import headerLogo from "@assets/Logo_PEEI_(1)_1766726369234.png";
 import universeBg from "@assets/Fundo_imagem_1766726108333.png";
 import sunImg from "@assets/generated_images/happy_cartoon_sun_waving.png";
 import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png";
@@ -68,12 +69,15 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
+      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center gap-4">
+        <div className="flex-none">
+          <img src={headerLogo} alt="StarKids Logo" className="h-12 md:h-16 w-auto object-contain" />
+        </div>
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
         <button
-          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform"
+          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform flex-none"
           onClick={() => setGateOpen(true)}
         >
           <Settings className="w-5 h-5" />
