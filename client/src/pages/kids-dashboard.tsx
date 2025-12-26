@@ -71,10 +71,9 @@ export default function KidsDashboard() {
       <img src={sunImg} className="absolute top-48 right-4 w-20 h-20" alt="Sun" />
 
       {/* Header */}
-      <header className="relative bg-gradient-to-r from-blue-600 to-blue-700 py-6 md:py-8 px-6 z-20 shadow-lg">
+      <header className="relative bg-gradient-to-b from-blue-500 to-blue-700 py-6 md:py-8 px-6 z-20 shadow-lg">
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white">
-          <span className="block">EI,</span>
-          <span className="block">{childName ? childName.toUpperCase() + "!" : "AMIGO!"}</span>
+          EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
       </header>
 
