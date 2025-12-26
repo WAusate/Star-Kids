@@ -64,20 +64,26 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
+        <div className="flex-1">
+          <img src={headerLogo} alt="StarKids Logo" className="h-16 md:h-20 w-auto object-contain" />
+        </div>
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
         </h1>
-        <button
-          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform"
-          onClick={() => setGateOpen(true)}
-          data-testid="button-settings"
-        >
-          <Settings className="w-5 h-5" />
-        </button>
+        <div className="flex-1 flex justify-end">
+          <button
+            className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform"
+            onClick={() => setGateOpen(true)}
+            data-testid="button-settings"
+          >
+            <Settings className="w-5 h-5" />
+          </button>
+        </div>
       </header>
+      <div className="h-20 md:h-24" />
 
-      <main className="relative pt-26 md:pt-32 p-6 md:p-12 max-w-4xl mx-auto z-10">
+      <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-60">
           {categories.map((cat) => (
             <div key={cat.id} className="flex flex-col items-center pt-2">
