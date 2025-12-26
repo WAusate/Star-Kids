@@ -69,15 +69,17 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center gap-4">
-        <div className="flex-none">
+      <header className="relative bg-gradient-to-b from-blue-500/80 to-blue-700/80 h-20 md:h-24 px-6 z-20 shadow-lg flex items-center gap-4">
+        <div className="absolute left-6 top-1/2 -translate-y-1/2 z-30">
           <img src={headerLogo} alt="StarKids Logo" className="h-20 md:h-32 w-auto object-contain" />
         </div>
-        <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
-          EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
-        </h1>
+        <div className="flex-1 text-center pl-24 md:pl-40">
+          <h1 className="text-3xl md:text-5xl font-heading leading-none text-white">
+            EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
+          </h1>
+        </div>
         <button
-          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform flex-none"
+          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform flex-none relative z-30"
           onClick={() => setGateOpen(true)}
         >
           <Settings className="w-5 h-5" />
