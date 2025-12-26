@@ -60,16 +60,16 @@ export default function KidsDashboard() {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-background">
+    <div className="min-h-screen relative bg-background">
       {/* Background elements */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-100 pointer-events-none"
+        className="fixed inset-0 bg-cover bg-center opacity-100 pointer-events-none z-0"
         style={{ backgroundImage: `url(${universeBg})` }}
       />
       
 
       {/* Header */}
-      <header className="sticky top-0 bg-gradient-to-r from-blue-950/80 via-blue-900/70 to-blue-950/80 backdrop-blur-lg h-20 md:h-24 px-6 z-50 shadow-2xl border-b border-white/10 flex items-center gap-4">
+      <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-950/80 via-blue-900/70 to-blue-950/80 backdrop-blur-lg h-20 md:h-24 px-6 z-50 shadow-2xl border-b border-white/10 flex items-center gap-4">
         <div className="absolute left-6 top-1/2 -translate-y-1/2 z-30">
           <img src={headerLogo} alt="StarKids Logo" className="h-25 md:h-32 w-auto object-contain" />
         </div>
@@ -86,7 +86,7 @@ export default function KidsDashboard() {
         </button>
       </header>
 
-      <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
+      <main className="relative pt-26 md:pt-32 p-6 md:p-12 max-w-4xl mx-auto z-10">
         {!selectedCategory ? (
           <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-60">
             {categories.map((cat) => (
