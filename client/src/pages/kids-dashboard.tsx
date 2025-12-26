@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 
 // Import images
-import bgImage from "@assets/generated_images/bright_sky_with_fluffy_clouds.png";
+import logoImg from "@assets/Logo_PEEI_1766725165645.png";
 import sunImg from "@assets/generated_images/happy_cartoon_sun_waving.png";
 import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png";
 import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
@@ -59,11 +59,11 @@ export default function KidsDashboard() {
   ];
 
   return (
-    <div className="min-h-screen relative overflow-hidden bg-[#87CEEB]">
+    <div className="min-h-screen relative overflow-hidden bg-background">
       {/* Background elements */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-60"
-        style={{ backgroundImage: `url(${bgImage})` }}
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-20 pointer-events-none"
+        style={{ backgroundImage: `url(${logoImg})` }}
       />
       
 
