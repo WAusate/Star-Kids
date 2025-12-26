@@ -9,7 +9,6 @@ import { toast } from "@/hooks/use-toast";
 
 // Import images
 import universeBg from "@assets/Fundo_imagem_1766726108333.png";
-import logoImg from "@assets/Logo_PEEI_1766725165645.png";
 import sunImg from "@assets/generated_images/happy_cartoon_sun_waving.png";
 import desenhosImg from "@assets/generated_images/cartoon_tv_with_happy_kids.png";
 import jogosImg from "@assets/generated_images/cartoon_game_controller_with_portals.png";
@@ -65,10 +64,6 @@ export default function KidsDashboard() {
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-100 pointer-events-none"
         style={{ backgroundImage: `url(${universeBg})` }}
-      />
-      <div 
-        className="absolute inset-0 bg-contain bg-center bg-no-repeat opacity-15 pointer-events-none"
-        style={{ backgroundImage: `url(${logoImg})` }}
       />
       
 
