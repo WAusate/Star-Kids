@@ -79,7 +79,7 @@ export default function KidsDashboard() {
           </h1>
         </div>
         <button
-          className="p-1.5 rounded-full bg-white/70 shadow-md text-blue-400 border-2 border-white hover:scale-105 transition-transform flex-none relative z-30"
+          className="p-2 rounded-full bg-white/10 hover:bg-white/20 text-white/70 hover:text-white transition-all flex-none relative z-30 border border-white/10"
           onClick={() => setGateOpen(true)}
         >
           <Settings className="w-5 h-5" />
