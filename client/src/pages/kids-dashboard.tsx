@@ -6,6 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
+import { useDeviceDetection } from "@/hooks/use-device-detection";
 
 // Import images
 import headerLogo from "@assets/Logo_PEEI_(1)_1766726369234.png";
@@ -22,6 +23,7 @@ export default function KidsDashboard() {
   const [, setLocation] = useLocation();
   const [gateOpen, setGateOpen] = useState(false);
   const [gateAnswer, setGateAnswer] = useState("");
+  const { isTouch, isMobile, isSmallScreen } = useDeviceDetection();
 
   const mathProblem = "3 + 2";
   const correctAnswer = "5";
@@ -43,12 +45,22 @@ export default function KidsDashboard() {
     return null;
   }
 
-  const categories = [
+  // Determinar se mostra o menu "Jogos"
+  // Mostra em: dispositivos com touch OU telas pequenas/móveis
+  // Esconde em: telas grandes sem touch (Smart TV, desktop sem mouse)
+  const showJogos = isTouch || isMobile || isSmallScreen;
+
+  const allCategories = [
     { id: "desenhos", label: "DESENHOS", img: desenhosImg },
     { id: "jogos", label: "JOGOS", img: jogosImg },
     { id: "musicas", label: "MÚSICAS", img: musicasImg },
     { id: "historias", label: "HISTÓRIAS", img: historiasImg },
   ];
+
+  // Filtrar categorias baseado na detecção de dispositivo
+  const categories = showJogos 
+    ? allCategories 
+    : allCategories.filter(cat => cat.id !== "jogos");
 
   const handleCategoryClick = (categoryId: string) => {
     setLocation(`/category/${categoryId}`);
