@@ -76,9 +76,9 @@ export default function KidsDashboard() {
       
 
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-3 md:py-4 px-6 z-20 shadow-lg flex items-center justify-between">
+      <header className="fixed top-0 left-0 w-full bg-gradient-to-b from-blue-500/80 to-blue-700/80 py-1 md:py-2 px-6 z-20 shadow-lg flex items-center justify-between">
         <div className="flex-1">
-          <img src={headerLogo} alt="StarKids Logo" className="h-16 md:h-20 w-auto object-contain" />
+          <img src={headerLogo} alt="StarKids Logo" className="h-24 md:h-32 w-auto object-contain" />
         </div>
         <h1 className="text-3xl md:text-5xl font-heading text-center leading-none text-white flex-1">
           EI, {childName ? childName.toUpperCase() + "!" : "AMIGO!"}
@@ -93,7 +93,7 @@ export default function KidsDashboard() {
           </button>
         </div>
       </header>
-      <div className="h-20 md:h-24" />
+      <div className="h-28 md:h-36" />
 
       <main className="relative p-6 md:p-12 max-w-4xl mx-auto z-10">
         <div className="flex flex-col md:grid md:grid-cols-4 gap-0 md:gap-60">
